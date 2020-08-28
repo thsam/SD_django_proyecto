@@ -14,3 +14,7 @@ Para ejecutar: python manage.py runserver
 
 Templates html/css : https://colorlib.com/
 
+Paquetes extra requeridos para Ubuntu:
+sudo apt-get install libmysqlclient-dev
+udo apt-get install libxml2-dev libxslt-dev python-dev
+

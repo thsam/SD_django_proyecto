@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+    db:
+        image: mysql:latest
+        volumes:
+            - mysql_data:/var/lib/mysq
+    
+    djangoapp:
+        build: .
+        volumes:
+            - static:/ebag/static
+            - .:ebag
+        depends_on: 
+            - localhost
+    nginx:
+        image: nginx:1.13
+        ports:
+            - 8000:80
+        volumes:
+            - ./config/nginx/conf.d/:etc/nginx/conf.d
+            - static:/ebag/static
+
+volumes:
+    .:
+    mysql_data:
+    static:
+    
